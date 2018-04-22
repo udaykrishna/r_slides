@@ -1,0 +1,395 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Let's Learn R</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section data-background-video="Data Scanner.mp4" data-background-video-loop=True>
+							<h1>Let's learn R</h1>
+							<a href = "https://linkedin.com/in/udaykrishna5">@udaykrishna5</a>
+					</section>
+					<section data-transition="convex" data-background-transition="slide">
+						<h1>What is R ?</h1>
+						<ul style="font-size: 24px">
+						<li class="fragment fade-up">R is a programming language and software environment for statistical analysis, graphics representation and reporting. 
+							R was created by <span style="color: rgb(81, 255, 0)">Ross Ihaka</span> and <span style="color: rgb(81, 255, 0)">Robert Gentleman</span> at the University of Auckland, New Zealand, and is currently developed 
+							by the R Development Core Team.</li>
+						
+						<li class="fragment fade-up">The core of R is an interpreted computer language which allows branching and looping as well as modular programming using functions. 
+							R allows integration with the procedures written in the C, C++, .Net, Python or FORTRAN languages for efficiency.</li>
+
+						<li class="fragment fade-up">R is freely available under the GNU General Public License, and pre-compiled binary versions are provided for various operating systems like Linux, 
+							Windows and Mac.</li>
+
+						<li class="fragment fade-up">R is free software distributed under a GNU-style copy left, and an official part of the GNU project called GNU S.</li>
+						</ul>
+					</section>
+					<section>
+						<h1 style="top:0px">Getting Started</h1>
+						<p> To get started we would have to download two things</p>
+						<ul>
+							<li class="fragment fade-up">R</li>
+							<li class="fragment fade-up">R Studio <span class="fragment zoom-left" style="color:plum">(optional but recommended)</span></li>
+						</ul>
+					</section>
+					<section data-background-iframe = "https://www.r-project.org/about.html">
+					</section>
+					<section data-background-iframe = "https://www.rstudio.com/">
+					</section>					
+					</section>
+				</section>
+				<section>
+					<section>
+					<h1>Basic Syntax</h1>
+					<pre><code data-trim class="r">
+# Single line comment
+"multi
+line
+comment"
+variable <- "value"
+print(variable)
+					</code></pre>
+					
+					<pre><span><b>output</b></span><code class="r">
+[1] "multi\nline\ncomment"
+[1] "value"
+
+</code></pre>
+				</section>
+				<section>
+					<h1>Data Types in R</h1>
+					<ul> 
+						<li><a href="#scalars">Scalars</a></li>
+						<code><ul style="font-size: 16px;right: 20%;position: absolute;">
+							<li><a href="#scalars">Scalars#Logical</a></li>
+							<li><a href="#scalars">Scalars#Numeric</a></li>
+							<li><a href="#scalars">Scalars#Integer</a></li>
+							<li><a href="#scalars">Scalars#Complex</a></li>
+							<li><a href="#scalars">Scalars#Raw</a></li>
+							<li><a href="#scalars">Scalars#Character</a></li>
+						</ul></code>
+						<li><a href="#vectors">Vectors</a></li>
+						<li><a href="#lists">Lists</a></li>
+						<li><a href="#matrices">Matrices</a></li>
+						<li><a href="#arrays">Arrays</a></li>
+						<li><a href="#data-frames">Data frames</a></li>
+					</ul>
+				</section>
+				<section id="scalars">
+					<h1>Scalars</h1>
+					<pre><code class="r"># Logical
+booltrue <- TRUE
+boolfalse <- FALSE
+print(class(booltrue))
+print(class(boolfalse))
+# [1] "logical"
+# [1] "logical"
+
+# Numerical
+num <- 12.1
+print(class(num))
+# [1] "numeric"
+# [1] "numeric"
+
+# Integer
+integerLar <- 1L
+print(class(integer))
+print(integerLar)
+print(class(integerLar))
+# [1] 1
+# [1] "integer"
+
+# Complex
+comp <- 2+5i
+print(comp)
+print(class(comp))
+# [1] 2+5i
+# [1] "complex"
+
+# Character
+character <- "Hello"
+print(class(character))
+# [1] "character"
+
+# Raw
+raw <- charToRaw("Hello")
+print(raw)
+print(class(raw))
+# [1] 48 65 6c 6c 6f
+# [1] "raw"
+</code></pre></section>
+			<section id="vectors">
+				<h1>Vectors</h1>
+				<!-- <pre><code class="r"></code></pre> -->
+				<p>Vector is a datatype containing more than one scalar of same type</p>
+				<pre><code class="r">
+num_vec <- c(1,2,3)
+char_vec <- c("scalar","vector","in","r")
+print(num_vec)
+print(char_vec)
+# [1] 1 2 3
+# [1] "scalar" "vector" "in"     "r"    
+
+</code></pre>
+			</section>
+			<section id="lists">
+					<h1>Lists</h1>
+					<!-- <pre><code class="r"></code></pre> -->
+					<p>List is similar to vector but it can hold multiple datatypes</p>
+					<pre><code class="r">
+lis <- list("scalar",2.1,2+1i,FALSE)
+print(lis)
+# [[1]]
+# [1] "scalar"
+# 
+# [[2]]
+# [1] 2.1
+# 
+# [[3]]
+# [1] 2+1i
+# 
+# [[4]]
+# [1] FALSE
+
+	</code></pre>
+				</section>
+				<section id="matrices">
+						<h1>Matrices</h1>
+						<!-- <pre><code class="r"></code></pre> -->
+						<p>A Matrix is a 2 dimentional rectangular dataset</p>
+						<pre><code class="r">
+mat <- matrix(c(1,2,3,4,5,6,7,8),nrow=2,ncol=4)
+print(mat)
+mat2 <- matrix(c(1,2,3,4,5,6,7,8),nrow=2,ncol=4,byrow=TRUE)
+print(mat2)
+# [,1] [,2] [,3] [,4]
+# [1,]    1    3    5    7
+# [2,]    2    4    6    8
+
+#      [,1] [,2] [,3] [,4]
+# [1,]    1    2    3    4
+# [2,]    5    6    7    8
+		</code></pre>
+					</section>
+					<section id="arrays">
+							<h1>Arrays</h1>
+							<!-- <pre><code class="r"></code></pre> -->
+							<p>Arrays are like matrices but they are not limited to two dimentions</p>
+							<pre><code class="r">
+arr <- array(c(3,2),dim = c(3,3,2))
+print(arr)
+
+# , , 1
+# 
+#      [,1] [,2] [,3]
+# [1,]    3    2    3
+# [2,]    2    3    2
+# [3,]    3    2    3
+# 
+# , , 2
+# 
+#      [,1] [,2] [,3]
+# [1,]    2    3    2
+# [2,]    3    2    3
+# [3,]    2    3    2
+			</code></pre>
+			</section>
+			<section id="data-frames">
+					<h1>Data Frames</h1>
+					<!-- <pre><code class="r"></code></pre> -->
+					<p>Data Frames are table like objects (much like excel sheets) and can have multiple datat types</p>
+					<pre><code class="r">
+# Create the data frame.
+BMI <- 	data.frame(
+	gender = c("Male", "Male","Female"), 
+	height = c(152, 171.5, 165), 
+	weight = c(81,93, 78),
+	Age = c(42,38,26)
+)
+print(BMI)
+
+# gender height weight Age
+# 1   Male  152.0     81  42
+# 2   Male  171.5     93  38
+# 3 Female  165.0     78  26
+
+	</code></pre>
+	</section>
+			</section>
+	<section>
+		<section>
+			<h1>Operators</h1>
+		</section>
+		<section data-background-iframe="https://www.tutorialspoint.com/r/r_operators.htm"></section>
+	</section>
+	<section>
+		<section>
+				<h1>decision making</h1>
+				<pre><code class="r">
+# IF-ELSE
+if(TRUE) {
+	print("this happens")
+	// statement(s) will execute if the boolean expression is true.
+	} else {
+		print("and this wont")
+	}
+# [1] "this happens"
+# SWITCH
+# switch(expression, case1, case2, case3....)
+x <- switch(
+   3,
+   "3==4",
+   "3>4",
+   "3<4",
+   "None"
+)
+print(x)
+# [1] "3<4"
+				</code></pre>
+			</section>
+	</section>
+	<section>
+		<section>
+			<h1>Loops</h1>
+			<pre><code class="r">
+# FOR loop
+for(integer in c(1,2,3,4,5)){
+	print(integer)
+}
+# [1] 1
+# [1] 2
+# [1] 3
+# [1] 4
+# [1] 5
+
+# While loop
+i = 0
+while(i<5){
+	print(i)
+	i+=1
+}
+# [1] 1
+# [1] 2
+# [1] 3
+# [1] 4
+
+			</code></pre>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1>Functions</h1>
+			<pre><code class= "r">
+add <- function(a,b){a+b}
+print(add(1,2))
+# [1] 3
+			</code></pre>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h1> Reading files</h1>
+			<pre><code clas="r">
+titanic = read.csv("https://gist.githubusercontent.com/udaykrishna/bb25e917f3ebf58465b3c9030db7496c/raw/a58d234fc9b1ebd68fea43795d93d66d81283171/train.csv")
+summary(titanic)
+
+# PassengerId       Survived          Pclass     
+# Min.   :  1.0   Min.   :0.0000   Min.   :1.000  
+# 1st Qu.:223.5   1st Qu.:0.0000   1st Qu.:2.000  
+# Median :446.0   Median :0.0000   Median :3.000  
+# Mean   :446.0   Mean   :0.3838   Mean   :2.309  
+# 3rd Qu.:668.5   3rd Qu.:1.0000   3rd Qu.:3.000  
+# Max.   :891.0   Max.   :1.0000   Max.   :3.000  
+# 												
+# Name                                        Sex          Age       
+# Abbing, Mr. Anthony                  :  1   female:314   Min.   : 0.42  
+# Abbott, Mr. Rossmore Edward          :  1   male  :577   1st Qu.:20.12  
+# Abbott, Mrs. Stanton (Rosa Hunt)     :  1                Median :28.00  
+# Abelson, Mr. Samuel                  :  1                Mean   :29.70  
+# Abelson, Mrs. Samuel (Hannah Wizosky):  1                3rd Qu.:38.00  
+# Adahl, Mr. Mauritz Nils Martin       :  1                Max.   :80.00  
+# (Other)                              :885                NA's   :177    
+# 	SibSp           Parch             Ticket         Fare       
+# Min.   :0.000   Min.   :0.0000   1601    :  7   Min.   :  0.00  
+# 1st Qu.:0.000   1st Qu.:0.0000   347082  :  7   1st Qu.:  7.91  
+# Median :0.000   Median :0.0000   CA. 2343:  7   Median : 14.45  
+# Mean   :0.523   Mean   :0.3816   3101295 :  6   Mean   : 32.20  
+# 3rd Qu.:1.000   3rd Qu.:0.0000   347088  :  6   3rd Qu.: 31.00  
+# Max.   :8.000   Max.   :6.0000   CA 2144 :  6   Max.   :512.33  
+# 								 (Other) :852                   
+# 		Cabin     Embarked
+# 		   :687    :  2   
+# B96 B98    :  4   C:168   
+# C23 C25 C27:  4   Q: 77   
+# G6         :  4   S:644   
+# C22 C26    :  3           
+# D          :  3           
+# (Other)    :186
+			</code></pre>
+		</section>
+	</section>
+	<section>
+	<section>
+		<h1>Splicing data frames</h1>
+		<pre><code class="r">
+titanic = read.csv("https://gist.githubusercontent.com/udaykrishna/bb25e917f3ebf58465b3c9030db7496c/raw/a58d234fc9b1ebd68fea43795d93d66d81283171/train.csv")
+titanic[which(titanic$Age==0.42),]
+# PassengerId Survived Pclass                            Name  Sex  Age SibSp
+# 804         804        1      3 Thomas, Master. Assad Alexander male 0.42     0
+#     Parch Ticket   Fare Cabin Embarked
+# 804     1   2625 8.5167              C
+</code></pre>
+	</section>
+	<section>
+		<h1>Using Dplyr</h1>
+	</section>
+	<section data-background-iframe="http://genomicsclass.github.io/book/pages/dplyr_tutorial.html">
+	</section>
+</section>
+<section>
+	<h1>Thank You</h1>
+	<p>That's all folks ! hope you liked it</p>
+	<img src="./01-Bugs-Bunny.png" height="250px">
+</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
